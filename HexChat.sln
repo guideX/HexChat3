@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexChat", "HexChat\HexChat.csproj", "{88AF4ADD-629D-4484-B765-E9D2FC2E3C99}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexChat.Desktop", "HexChat.Desktop\HexChat.Desktop.csproj", "{92A7E368-1D0E-4914-A8B6-65AAE8DCB4B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexChat.Browser", "HexChat.Browser\HexChat.Browser.csproj", "{60A40F42-6292-4C17-9166-5C5A969E0152}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexChat.Models", "HexChat.Models\HexChat.Models.csproj", "{DD9DE2DB-85FF-4D46-926C-779F79CCAFC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexChat.Business", "HexChat.Business\HexChat.Business.csproj", "{3A5C2A7B-45C8-4418-A32D-3D7FBB7BEB88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88AF4ADD-629D-4484-B765-E9D2FC2E3C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88AF4ADD-629D-4484-B765-E9D2FC2E3C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88AF4ADD-629D-4484-B765-E9D2FC2E3C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88AF4ADD-629D-4484-B765-E9D2FC2E3C99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A7E368-1D0E-4914-A8B6-65AAE8DCB4B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A7E368-1D0E-4914-A8B6-65AAE8DCB4B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A7E368-1D0E-4914-A8B6-65AAE8DCB4B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A7E368-1D0E-4914-A8B6-65AAE8DCB4B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A40F42-6292-4C17-9166-5C5A969E0152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A40F42-6292-4C17-9166-5C5A969E0152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A40F42-6292-4C17-9166-5C5A969E0152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A40F42-6292-4C17-9166-5C5A969E0152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9DE2DB-85FF-4D46-926C-779F79CCAFC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9DE2DB-85FF-4D46-926C-779F79CCAFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9DE2DB-85FF-4D46-926C-779F79CCAFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9DE2DB-85FF-4D46-926C-779F79CCAFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A5C2A7B-45C8-4418-A32D-3D7FBB7BEB88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5C2A7B-45C8-4418-A32D-3D7FBB7BEB88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5C2A7B-45C8-4418-A32D-3D7FBB7BEB88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A5C2A7B-45C8-4418-A32D-3D7FBB7BEB88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01A2BE2E-5178-49CF-A73A-F2C4F54A1B17}
+	EndGlobalSection
+EndGlobal
