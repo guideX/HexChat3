@@ -26,7 +26,7 @@
         /// <param name="text"></param>
         /// <param name="timestamp"></param>
         /// <param name="isSentByClient"></param>
-        private Message(string from, string text, System.DateTime timestamp, bool isSentByClient) {
+        private MessageModel(string from, string text, System.DateTime timestamp, bool isSentByClient) {
             From = from;
             Text = text;
             Timestamp = timestamp;
@@ -37,35 +37,35 @@
         /// </summary>
         /// <param name="queryMessage"></param>
         /// <returns></returns>
-        public static Message Received(QueryMessage queryMessage) =>
-            new Message(queryMessage.User.Nick, queryMessage.Text, queryMessage.Timestamp, isSentByClient: false);
+        public static MessageModel Received(QueryMessageModel queryMessage) =>
+            new MessageModel(queryMessage.User.Nick!, queryMessage.Text, queryMessage.Timestamp, isSentByClient: false);
         /// <summary>
         /// Sent
         /// </summary>
         /// <param name="queryMessage"></param>
         /// <returns></returns>
-        public static Message Sent(QueryMessage queryMessage) =>
-            new Message(queryMessage.User.Nick, queryMessage.Text, queryMessage.Timestamp, isSentByClient: true);
+        public static MessageModel Sent(QueryMessageModel queryMessage) =>
+            new MessageModel(queryMessage.User.Nick!, queryMessage.Text, queryMessage.Timestamp, isSentByClient: true);
         /// <summary>
         /// Received
         /// </summary>
         /// <param name="channelMessage"></param>
         /// <returns></returns>
-        public static Message Received(ChannelMessage channelMessage) =>
-            new Message(channelMessage.User.Nick, channelMessage.Text, channelMessage.Timestamp, isSentByClient: false);
+        public static MessageModel Received(ChannelMessageModel channelMessage) =>
+            new MessageModel(channelMessage.User.Nick!, channelMessage.Text, channelMessage.Timestamp, isSentByClient: false);
         /// <summary>
         /// Sent
         /// </summary>
         /// <param name="channelMessage"></param>
         /// <returns></returns>
-        public static Message Sent(ChannelMessage channelMessage) =>
-            new Message(channelMessage.User.Nick, channelMessage.Text, channelMessage.Timestamp, isSentByClient: true);
+        public static MessageModel Sent(ChannelMessageModel channelMessage) =>
+            new MessageModel(channelMessage.User.Nick!, channelMessage.Text, channelMessage.Timestamp, isSentByClient: true);
         /// <summary>
         /// Received
         /// </summary>
         /// <param name="serverMessage"></param>
         /// <returns></returns>
-        public static Message Received(ServerMessage serverMessage) =>
-            new Message(string.Empty, serverMessage.Text, serverMessage.Timestamp, isSentByClient: false);
+        public static MessageModel Received(ServerMessageModel serverMessage) =>
+            new MessageModel(string.Empty, serverMessage.Text, serverMessage.Timestamp, isSentByClient: false);
     }
 }

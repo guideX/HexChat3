@@ -23,7 +23,7 @@
         /// </summary>
         /// <param name="channel"></param>
         /// <param name="message"></param>
-        public ClientMessageToSend(string channel, string message) {
+        public ClientMessageToSendModel(string channel, string message) {
             Channel = channel;
             Message = message;
         }
