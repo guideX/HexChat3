@@ -41,7 +41,7 @@ namespace HexChat.Models.Message {
         /// <summary>
         /// An Enum representing the IRC command
         /// </summary>
-        public IRCCommand IRCCommand { get; private set; }
+        public IRCCommandEnum IRCCommand { get; private set; }
 
         /// <summary>
         /// An Enum representing the IRC numeric reply
@@ -76,7 +76,7 @@ namespace HexChat.Models.Message {
                 if (IsNumericReply(numericReply.ToString())) {
                     NumericReply = IRCNumericReplyEnum.UNKNOWN;
                 }
-            } else if (System.Enum.TryParse(Command, out IRCCommand ircCommand)) {
+            } else if (System.Enum.TryParse(Command, out IRCCommandEnum ircCommand)) {
                 IRCCommand = ircCommand;
             }
         }

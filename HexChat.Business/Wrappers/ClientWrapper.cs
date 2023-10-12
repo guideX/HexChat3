@@ -1,4 +1,5 @@
-﻿using HexChat.Models.Message;
+﻿using HexChat.Business.Business;
+using HexChat.Models.Message;
 using HexChat.Models.User;
 namespace HexChat.Business.Wrappers {
     /// <summary>
@@ -17,7 +18,7 @@ namespace HexChat.Business.Wrappers {
         /// <summary>
         /// Client
         /// </summary>
-        private Client _client;
+        private ClientBusiness _client;
         /// <summary>
         /// Connection
         /// </summary>
@@ -54,7 +55,7 @@ namespace HexChat.Business.Wrappers {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _connection_Connected(object? sender, EventArgs e) {
+        private void _connection_Connected(object? sender, System.EventArgs e) {
             _connected = true;
         }
         /// <summary>
@@ -62,7 +63,7 @@ namespace HexChat.Business.Wrappers {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _connection_Disconnected(object? sender, EventArgs e) {
+        private void _connection_Disconnected(object? sender, System.EventArgs e) {
             _user = "";
             _messagesToSend = new List<ClientMessageToSendModel>();
             _connected = false;
@@ -98,7 +99,7 @@ namespace HexChat.Business.Wrappers {
             _connection = new IrcProtocol.Connection.TcpClientConnection(host, Convert.ToInt32(port));
             _connection.Disconnected += _connection_Disconnected;
             _connection.Connected += _connection_Connected;
-            _client = new Client(new UserModel(user, realName), _connection);
+            _client = new ClientBusiness(new UserModel(user, realName), _connection);
             _client.RegistrationCompleted += _client_RegistrationCompleted;
             _messagesToSend = new List<ClientMessageToSendModel>();
         }

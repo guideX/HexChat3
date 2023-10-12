@@ -1,8 +1,11 @@
-﻿namespace HexChat.Business.Messages {
+﻿using HexChat.Models.Interfaces;
+namespace HexChat.Business.Messages {
     /// <summary>
     /// Ctcp Reply Message
     /// </summary>
+#pragma warning disable CRRSP08 // A misspelled word has been found
     public class CtcpReplyMessage : IClientMessage {
+#pragma warning restore CRRSP08 // A misspelled word has been found
         /// <summary>
         /// Target
         /// </summary>
@@ -18,7 +21,7 @@
         /// <param name="text"></param>
         public CtcpReplyMessage(string target, string text) {
             Target = target;
-            Message = $":{CtcpCommands.CtcpDelimiter}{text}{CtcpCommands.CtcpDelimiter}";
+            Message = $":{CtcpCommandBusiness.CtcpDelimiter}{text}{CtcpCommandBusiness.CtcpDelimiter}";
         }
         /// <summary>
         /// Tokens

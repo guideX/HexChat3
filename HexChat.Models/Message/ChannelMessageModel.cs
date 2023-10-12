@@ -5,6 +5,7 @@ namespace HexChat.Models.Message {
     /// Represents a channel message
     /// </summary>
     public class ChannelMessageModel : EventArgs {
+        #region "public properties"
         /// <summary>
         /// User
         /// </summary>
@@ -21,12 +22,20 @@ namespace HexChat.Models.Message {
         /// Timestamp
         /// </summary>
         public DateTime Timestamp { get; }
-
+        #endregion
+        #region "public methods"
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="channel"></param>
+        /// <param name="text"></param>
         public ChannelMessageModel(UserModel user, ChannelModel channel, string text) {
             User = user;
             Channel = channel;
             Text = text;
             Timestamp = DateTime.Now;
         }
+        #endregion
     }
 }

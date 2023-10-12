@@ -1,3 +1,0 @@
-﻿namespace HexChat.Models.Message {
-
-}

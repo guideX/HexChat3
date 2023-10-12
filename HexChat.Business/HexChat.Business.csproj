@@ -7,13 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Messages\**" />
-    <EmbeddedResource Remove="Messages\**" />
-    <None Remove="Messages\**" />
+    <ProjectReference Include="..\HexChat.Models\HexChat.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HexChat.Models\HexChat.Models.csproj" />
+    <Folder Include="Message\" />
   </ItemGroup>
 
 </Project>

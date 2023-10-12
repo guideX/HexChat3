@@ -1,4 +1,5 @@
-﻿using HexChat.Models.Channel;
+﻿using HexChat.Business.Business;
+using HexChat.Models.Channel;
 using System.Collections;
 using System.Threading.Channels;
 #pragma warning disable CRRSP08 // A misspelled word has been found
@@ -10,7 +11,7 @@ namespace HexChat.Business.Comparers {
     public class ChannelUserComparer : IComparer<ChannelUserModel>, IComparer {
         public int Compare(ChannelUserModel u1, ChannelUserModel u2) {
             if (!string.IsNullOrWhiteSpace(u1.Status) && !string.IsNullOrWhiteSpace(u2.Status)) {
-                var statuses = ChannelModel.UserStatuses;
+                var statuses = ChannelBusiness.UserStatuses;
                 var s1 = u1.Status[0];
                 var s2 = u2.Status[0];
                 if (Array.IndexOf(statuses, s1) < Array.IndexOf(statuses, s2))
@@ -30,7 +31,7 @@ namespace HexChat.Business.Comparers {
         }
 
         public int Compare(object x, object y) {
-            if (x is not ChannelUser u1 || y is not ChannelUser u2)
+            if (x is not ChannelUserModel u1 || y is not ChannelUserModel u2)
                 return 0;
 
             return Compare(u1, u2);

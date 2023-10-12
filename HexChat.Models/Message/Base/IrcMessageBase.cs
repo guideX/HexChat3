@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using HexChat.Models.Interfaces;
+using System.Text;
 namespace HexChat.Business.Messages.Base {
     /// <summary>
     /// Irc Message
@@ -14,7 +15,11 @@ namespace HexChat.Business.Messages.Base {
                 IClientMessage clientMessage => BuildClientMessage(clientMessage),
                 _ => base.ToString(),
             };
-        }
+        }/// <summary>
+        /// Build Client Message
+        /// </summary>
+        /// <param name="clientMessage"></param>
+        /// <returns></returns>
         private string BuildClientMessage(ISplitClientMessage clientMessage) {
             var sb = new StringBuilder(1024);
             foreach (var tokens in clientMessage.LineSplitTokens) {
