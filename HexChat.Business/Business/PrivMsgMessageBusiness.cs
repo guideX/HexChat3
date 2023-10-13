@@ -3,6 +3,7 @@ using HexChat.Business.Messages.Base;
 using HexChat.Models;
 using HexChat.Models.Interfaces;
 using HexChat.Models.Message;
+using System.Reflection;
 using System.Text;
 namespace HexChat.Business.Business {
     /// <summary>
@@ -10,30 +11,23 @@ namespace HexChat.Business.Business {
     /// </summary>
     public class PrivMsgMessageBusiness : IRCMessage, IServerMessage, IClientMessage, ISplitClientMessage {
         /// <summary>
-        /// Max Message Byte Size
+        /// PrivMsg Message Model
         /// </summary>
-        public const int MaxMessageByteSize = 400;
-
-        public string From { get; }
-        public IRCPrefixModel Prefix { get; }
-        public string To { get; }
-        public string Message { get; }
-        public bool IsChannelMessage { get; }
-        public bool IsCtcp { get; }
-
+        public PrivMsgMessageModel Model;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="parsedMessage"></param>
         public PrivMsgMessageBusiness(ParsedIRCMessageModel parsedMessage) {
-            From = parsedMessage.Prefix.From!;
-            Prefix = parsedMessage.Prefix;
-            To = parsedMessage.Parameters[0];
-            Message = parsedMessage.Trailing;
-
-            IsChannelMessage = To[0] == '#';
-            IsCtcp = Message.Contains(CtcpCommands.CtcpDelimiter);
+            Model = new PrivMsgMessageModel(parsedMessage);
         }
 
         public PrivMsgMessageBusiness(string target, string text) {
-            To = target;
-            Message = !text.Contains(" ") ? $":{text}" : text;
+            Model = new PrivMsgMessageModel(null) {
+
+            };
+            Model.To = target;
+            Model.Message = !text.Contains(" ") ? $":{text}" : text;
         }
 
         public IEnumerable<string> Tokens => Enumerable.Empty<string>();

@@ -1,11 +1,9 @@
-﻿using Avalonia.Controls;
+using Avalonia.Controls;
 
-namespace HexChat.Views;
-
-public partial class MainWindow : Window
-{
-    public MainWindow()
-    {
-        InitializeComponent();
+namespace HexChat.Views {
+    public partial class MainWindow : Window {
+        public MainWindow() {
+            InitializeComponent();
+        }
     }
 }

@@ -1,8 +1,8 @@
 using Avalonia.Controls;
 
 namespace HexChat.Views {
-    public partial class ChannelView : Window {
-        public ChannelView() {
+    public partial class ServerView : Window {
+        public ServerView() {
             InitializeComponent();
         }
     }

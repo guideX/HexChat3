@@ -4,6 +4,8 @@ using HexChat.Business.Handlers;
 using HexChat.Business.Handlers.Base;
 using HexChat.Models.Message;
 using System.Reflection;
+using System.Runtime.CompilerServices;
+[assembly: InternalsVisibleTo("HexChat.Test")]
 namespace HexChat.Business.HandlerContainers {
     public class MessageHandlerContainer {
         private readonly ClientBusiness client;

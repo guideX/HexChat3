@@ -11,5 +11,9 @@
         /// Space
         /// </summary>
         public static string Space = " ";
+        /// <summary>
+        /// Max Message Byte Size
+        /// </summary>
+        public const int MaxMessageByteSize = 400;
     }
 }

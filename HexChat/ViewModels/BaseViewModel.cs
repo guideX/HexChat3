@@ -1,6 +1,6 @@
-﻿using System.ComponentModel;
+﻿using Avalonia;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Windows;
 namespace HexChat.ViewModels {
     /// <summary>
     /// Base View Model
@@ -9,7 +9,7 @@ namespace HexChat.ViewModels {
         /// <summary>
         /// App
         /// </summary>
-        public App App => (App)Application.Current;
+        public App App => (App)Application.Current!;
         /// <summary>
         /// Set Property
         /// </summary>
@@ -29,6 +29,6 @@ namespace HexChat.ViewModels {
         /// <summary>
         /// Property Changed
         /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }
