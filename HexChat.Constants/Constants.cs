@@ -4,6 +4,10 @@
     /// </summary>
     public static class Constants {
         /// <summary>
+        /// User Statuses
+        /// </summary>
+        public static char[] UserStatuses = new[] { '~', '&', '@', '%', '+' };
+        /// <summary>
         /// Ctcp Delimiter
         /// </summary>
         public static string CtcpDelimiter = "\x01";

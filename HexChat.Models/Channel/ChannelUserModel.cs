@@ -1,5 +1,4 @@
 ﻿using HexChat.Models.User;
-using System.Collections;
 namespace HexChat.Models.Channel {
     /// <summary>
     /// Channel User Model
@@ -16,7 +15,7 @@ namespace HexChat.Models.Channel {
         /// <summary>
         /// Nick
         /// </summary>
-        public string? Nick => User.Nick != null ? User.Nick : null;
+        public string Nick => User.Nick != null ? User.Nick : "";
         /// <summary>
         /// Constructor
         /// </summary>

@@ -10,10 +10,6 @@ namespace HexChat.Business.Business {
         /// </summary>
         public ChannelModel Model;
         /// <summary>
-        /// User Statuses
-        /// </summary>
-        public static char[] UserStatuses = new[] { '~', '&', '@', '%', '+' };
-        /// <summary>
         /// Channel Model
         /// </summary>
         /// <param name="name"></param>
