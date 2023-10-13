@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexChat.Constant", "HexChat.Constants\HexChat.Constant.csproj", "{9BD66DCF-544D-46E5-9C58-0C79FC71FFF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{C3CD159C-407A-4704-A351-033ADA48EA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3CD159C-407A-4704-A351-033ADA48EA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3CD159C-407A-4704-A351-033ADA48EA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BD66DCF-544D-46E5-9C58-0C79FC71FFF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BD66DCF-544D-46E5-9C58-0C79FC71FFF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BD66DCF-544D-46E5-9C58-0C79FC71FFF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BD66DCF-544D-46E5-9C58-0C79FC71FFF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,8 @@ Global
 		{DD9DE2DB-85FF-4D46-926C-779F79CCAFC8} = {328E715F-02DC-4452-91D3-0E6A2E81D127}
 		{3A5C2A7B-45C8-4418-A32D-3D7FBB7BEB88} = {328E715F-02DC-4452-91D3-0E6A2E81D127}
 		{C3CD159C-407A-4704-A351-033ADA48EA6F} = {328E715F-02DC-4452-91D3-0E6A2E81D127}
+		{A7EFEC92-ADF1-4B61-A064-0EAE781B4A88} = {440FB520-3DFA-4556-BA71-AB44D86BC842}
+		{9BD66DCF-544D-46E5-9C58-0C79FC71FFF7} = {328E715F-02DC-4452-91D3-0E6A2E81D127}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {01A2BE2E-5178-49CF-A73A-F2C4F54A1B17}

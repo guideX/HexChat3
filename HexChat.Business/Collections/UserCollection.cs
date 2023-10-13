@@ -1,4 +1,5 @@
-﻿using HexChat.Models.User;
+﻿using HexChat.Business.Business;
+using HexChat.Models.User;
 using System.Collections.ObjectModel;
 namespace HexChat.Business.Collections {
     /// <summary>
@@ -14,7 +15,7 @@ namespace HexChat.Business.Collections {
             var user = Items.FirstOrDefault(u => string.Equals(u.Nick, nick, StringComparison.InvariantCultureIgnoreCase));
             if (user is null) {
                 user = new UserModel(nick);
-                Client.DispatcherInvoker.Invoke(() => Add(user));
+                ClientBusiness.DispatcherInvoker.Invoke(() => Add(user));
             }
             return user;
         }

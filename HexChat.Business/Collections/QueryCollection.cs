@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using HexChat.Business.Business;
+using HexChat.Models.Query;
 using HexChat.Models.User;
 namespace HexChat.Business.Collections {
     /// <summary>
@@ -14,7 +16,7 @@ namespace HexChat.Business.Collections {
             var query = Items.FirstOrDefault(q => q.User.Nick == user.Nick);
             if (query is null) {
                 query = new QueryModel(user);
-                Client.DispatcherInvoker.Invoke(() => Add(query));
+                ClientBusiness.DispatcherInvoker.Invoke(() => Add(query));
             }
             return query;
         }

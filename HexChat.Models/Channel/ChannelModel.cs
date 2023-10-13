@@ -17,17 +17,19 @@ namespace HexChat.Models.Channel {
         /// <summary>
         /// Users
         /// </summary>
-        public ObservableCollection<ChannelUserModel> Users { get; set; }
+        public ObservableCollection<ChannelUserModel> Users { get; set; } 
         /// <summary>
         /// Messages
         /// </summary>
-        public ObservableCollection<ChannelMessageModel> Messages { get; set; }
+        public ObservableCollection<ChannelMessageModel> Messages { get; set; } = new ObservableCollection<ChannelMessageModel>();
         /// <summary>
         /// Channel Model
         /// </summary>
         public ChannelModel(string name, string? topic = null) {
             Name = name;
             Topic = topic;
+            Users = new ObservableCollection<ChannelUserModel>();
+            Messages = new ObservableCollection<ChannelMessageModel>();
         }
     }
 }

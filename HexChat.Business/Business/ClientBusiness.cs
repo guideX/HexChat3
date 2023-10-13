@@ -1,6 +1,7 @@
 ﻿using HexChat.Business.Collections;
 using HexChat.Business.Commands;
 using HexChat.Business.EventArgs;
+using HexChat.Business.HandlerContainers;
 using HexChat.Business.Handlers;
 using HexChat.Business.Interfaces.Connection;
 using HexChat.Enum;
@@ -130,7 +131,7 @@ namespace HexChat.Business.Business {
 
             RawDataReceived?.Invoke(this, e.Data);
 
-            var parsedIRCMessage = new ParsedIRCMessage(rawData);
+            var parsedIRCMessage = new ParsedIRCMessageModel(rawData);
 
             await HandleServerMessages(parsedIRCMessage);
 
@@ -147,17 +148,13 @@ namespace HexChat.Business.Business {
         /// <param name="port">Port number</param>
         /// <returns>The task object representing the asynchronous operation</returns>
         public async Task ConnectAsync() {
-            await connection.ConnectAsync()
-                .ConfigureAwait(false);
-
+            await connection.ConnectAsync().ConfigureAwait(false);
             if (!string.IsNullOrWhiteSpace(password)) {
-                await SendAsync(new PassMessage(password))
+                await SendAsync(new PassMessageModel(password))
                     .ConfigureAwait(false);
             }
-            await SendAsync(new NickMessage(User.Nick))
-                    .ConfigureAwait(false);
-            await SendAsync(new UserMessage(User.Nick, User.RealName))
-                    .ConfigureAwait(false);
+            await SendAsync(new NickMessageModel(User.Nick!)).ConfigureAwait(false);
+            await SendAsync(new UserMessage(User.Nick!, User.RealName!)).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -213,7 +210,7 @@ namespace HexChat.Business.Business {
             DispatcherInvoker = dispatcherInvoke;
         }
 
-        private Task HandleServerMessages(ParsedIRCMessage parsedIRCMessage) {
+        private Task HandleServerMessages(ParsedIRCMessageModel parsedIRCMessage) {
             if (parsedIRCMessage.IsNumeric) {
                 return HandleNumericReply(parsedIRCMessage);
             }

@@ -1,6 +1,8 @@
 ﻿using HexChat.Business.Commands;
 using HexChat.Business.Messages.Base;
+using HexChat.Models;
 using HexChat.Models.Interfaces;
+using HexChat.Models.Message;
 using System.Text;
 namespace HexChat.Business.Business {
     /// <summary>
@@ -13,14 +15,14 @@ namespace HexChat.Business.Business {
         public const int MaxMessageByteSize = 400;
 
         public string From { get; }
-        public IRCPrefix Prefix { get; }
+        public IRCPrefixModel Prefix { get; }
         public string To { get; }
         public string Message { get; }
         public bool IsChannelMessage { get; }
         public bool IsCtcp { get; }
 
-        public PrivMsgMessage(ParsedIRCMessage parsedMessage) {
-            From = parsedMessage.Prefix.From;
+        public PrivMsgMessageBusiness(ParsedIRCMessageModel parsedMessage) {
+            From = parsedMessage.Prefix.From!;
             Prefix = parsedMessage.Prefix;
             To = parsedMessage.Parameters[0];
             Message = parsedMessage.Trailing;
@@ -29,7 +31,7 @@ namespace HexChat.Business.Business {
             IsCtcp = Message.Contains(CtcpCommands.CtcpDelimiter);
         }
 
-        public PrivMsgMessage(string target, string text) {
+        public PrivMsgMessageBusiness(string target, string text) {
             To = target;
             Message = !text.Contains(" ") ? $":{text}" : text;
         }

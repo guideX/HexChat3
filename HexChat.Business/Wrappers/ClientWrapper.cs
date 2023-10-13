@@ -1,4 +1,5 @@
 ﻿using HexChat.Business.Business;
+using HexChat.Business.Connection;
 using HexChat.Models.Message;
 using HexChat.Models.User;
 namespace HexChat.Business.Wrappers {
@@ -38,7 +39,7 @@ namespace HexChat.Business.Wrappers {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void _client_RegistrationCompleted(object? sender, EventArgs e) {
+        private void _client_RegistrationCompleted(object? sender, System.EventArgs e) {
             AutoJoinChannel();
         }
         /// <summary>
@@ -46,7 +47,7 @@ namespace HexChat.Business.Wrappers {
         /// </summary>
         private async void AutoJoinChannel() {
             if (string.IsNullOrWhiteSpace(_channel)) return;
-            await _client.SendAsync(new JoinMessage(_channel));
+            await _client.SendAsync(new JoinMessageModel(_channel));
             Thread.Sleep(2000);
             if (_messagesToSend.Count > 0) SendMessages();
         }
@@ -96,7 +97,7 @@ namespace HexChat.Business.Wrappers {
         public ClientWrapper(string host, string port, string user, string realName, string password, string channel) {
             _channel = channel;
             _user = user;
-            _connection = new IrcProtocol.Connection.TcpClientConnection(host, Convert.ToInt32(port));
+            _connection = new TcpClientConnection(host, Convert.ToInt32(port));
             _connection.Disconnected += _connection_Disconnected;
             _connection.Connected += _connection_Connected;
             _client = new ClientBusiness(new UserModel(user, realName), _connection);

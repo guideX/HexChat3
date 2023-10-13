@@ -1,4 +1,5 @@
 ﻿using HexChat.Business.Messages.Base;
+using HexChat.Models.Interfaces;
 namespace HexChat.Models.Message {
     /// <summary>
     /// User Message Model

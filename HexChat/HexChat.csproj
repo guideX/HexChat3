@@ -10,6 +10,17 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
+  
+  <ItemGroup>
+    <AvaloniaXaml Remove="Views\ChannelView.axaml" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <Compile Remove="Views\AboutWindow.axaml.cs" />
+    <Compile Remove="Views\ChannelView.axaml.cs" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
@@ -22,6 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HexChat.Business\HexChat.Business.csproj" />
     <ProjectReference Include="..\HexChat.Models\HexChat.Models.csproj" />
   </ItemGroup>
 </Project>

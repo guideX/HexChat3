@@ -37,7 +37,7 @@ namespace HexChat.Business.Business {
         /// <param name="user"></param>
         /// <param name="status"></param>
         public void AddUser(UserModel user, string status) {
-            ClientBusiness.DispatcherInvoker.Invoke(() => Users.Add(new ChannelUser(user, status)));
+            ClientBusiness.DispatcherInvoker.Invoke(() => Model.Users.Add(new ChannelUserModel(user, status)));
         }
         /// <summary>
         /// Remove User
@@ -46,7 +46,7 @@ namespace HexChat.Business.Business {
         public void RemoveUser(string nick) {
             var user = GetUser(nick);
             if (user != null)
-                ClientBusiness.DispatcherInvoker.Invoke(() => Users.Remove(user));
+                ClientBusiness.DispatcherInvoker.Invoke(() => Model.Users.Remove(user));
         }
         /// <summary>
         /// Set Topic

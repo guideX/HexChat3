@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\HexChat.Constants\HexChat.Constant.csproj" />
-    <ProjectReference Include="..\HexChat.Enum\HexChat.Enum.csproj" />
-  </ItemGroup>
-
 </Project>

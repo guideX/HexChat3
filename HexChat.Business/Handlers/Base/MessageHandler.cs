@@ -1,5 +1,6 @@
-﻿using HexChat.Business.Interfaces.Handler;
-using HexChat.Business.Interfaces.Messages;
+﻿using HexChat.Business.Business;
+using HexChat.Business.Interfaces.Handler;
+using HexChat.Models.Interfaces;
 namespace HexChat.Business.Handlers.Base {
     /// <summary>
     /// Message Handler
@@ -27,6 +28,6 @@ namespace HexChat.Business.Handlers.Base {
         /// <param name="serverMessage"></param>
         /// <param name="client"></param>
         /// <returns></returns>
-        public abstract Task HandleAsync(TServerMessage serverMessage, Client client);
+        public abstract Task HandleAsync(TServerMessage serverMessage, ClientBusiness client);
     }
 }

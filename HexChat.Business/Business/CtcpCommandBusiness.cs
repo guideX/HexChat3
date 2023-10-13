@@ -7,10 +7,6 @@ namespace HexChat.Business.Business {
     /// </summary>
     public class CtcpCommandBusiness {
         /// <summary>
-        /// Ctcp Delimiter
-        /// </summary>
-        public internal const string CtcpDelimiter = "\x01";
-        /// <summary>
         /// ACTION
         /// </summary>
         public const string ACTION = nameof(ACTION);
@@ -68,7 +64,7 @@ namespace HexChat.Business.Business {
         /// <param name="target"></param>
         /// <returns></returns>
         private static Task ClientInfoReply(ClientBusiness client, string target) {
-            return client.SendAsync(new CtcpReplyMessage(target, $"{CLIENTINFO} {ACTION} {CLIENTINFO} {PING} {TIME} {VERSION}"));
+            return client.SendAsync(new CtcpReplyMessageBusiness(target, $"{CLIENTINFO} {ACTION} {CLIENTINFO} {PING} {TIME} {VERSION}"));
         }
         /// <summary>
         /// Ping Reply
@@ -78,7 +74,7 @@ namespace HexChat.Business.Business {
         /// <param name="message"></param>
         /// <returns></returns>
         private static Task PingReply(ClientBusiness client, string target, string message) {
-            return client.SendAsync(new CtcpReplyMessage(target, $"{PING} {message}"));
+            return client.SendAsync(new CtcpReplyMessageBusiness(target, $"{PING} {message}"));
         }
         /// <summary>
         /// Time Reply
@@ -87,7 +83,7 @@ namespace HexChat.Business.Business {
         /// <param name="target"></param>
         /// <returns></returns>
         private static Task TimeReply(ClientBusiness client, string target) {
-            return client.SendAsync(new CtcpReplyMessage(target, $"{TIME} {DateTime.Now:F}"));
+            return client.SendAsync(new CtcpReplyMessageBusiness(target, $"{TIME} {DateTime.Now:F}"));
         }
         /// <summary>
         /// Version Reply
@@ -99,7 +95,7 @@ namespace HexChat.Business.Business {
             var version = typeof(ClientBusiness).Assembly
                 .GetCustomAttribute<AssemblyFileVersionAttribute>()
                 .Version;
-            return client.SendAsync(new CtcpReplyMessage(target, $"{VERSION} HexChat v{version})"));
+            return client.SendAsync(new CtcpReplyMessageBusiness(target, $"{VERSION} HexChat v{version})"));
         }
     }
 }

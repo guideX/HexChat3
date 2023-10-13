@@ -13,7 +13,7 @@ namespace HexChat.Business.Messages.Base {
             return this switch {
                 ISplitClientMessage clientMessage => BuildClientMessage(clientMessage),
                 IClientMessage clientMessage => BuildClientMessage(clientMessage),
-                _ => base.ToString(),
+                _ => base.ToString()!,
             };
         }/// <summary>
         /// Build Client Message
@@ -27,7 +27,7 @@ namespace HexChat.Business.Messages.Base {
                     continue;
                 }
                 AppendTokens(sb, tokens);
-                sb.Append(Constants.CrLf);
+                sb.Append(Microsoft.VisualBasic.Constants.vbCrLf);
             }
             return sb.ToString().Trim();
         }

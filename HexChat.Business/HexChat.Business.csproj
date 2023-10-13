@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HexChat.Constants\HexChat.Constant.csproj" />
     <ProjectReference Include="..\HexChat.Models\HexChat.Models.csproj" />
   </ItemGroup>
 

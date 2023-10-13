@@ -1,4 +1,5 @@
-﻿using HexChat.Enum;
+﻿using HexChat.Constant;
+using HexChat.Enum;
 namespace HexChat.Models.Message {
     /// <summary>
     /// Parsed IRC Message Model
@@ -88,12 +89,12 @@ namespace HexChat.Models.Message {
             var trailing = string.Empty;
             var indexOfNextSpace = 0;
             if (RawDataHasPrefix) {
-                indexOfNextSpace = rawData.IndexOf(Space);
+                indexOfNextSpace = rawData.IndexOf(Constants.Space);
                 var prefixData = rawData.Slice(1, indexOfNextSpace - 1);
                 Prefix = new IRCPrefixModel(prefixData.ToString());
                 rawData = rawData.Slice(indexOfNextSpace + 1);
             }
-            var indexOfTrailingStart = rawData.IndexOf(TrailingPrefix);
+            var indexOfTrailingStart = rawData.IndexOf(_trailingPrefix);
             if (indexOfTrailingStart > -1) {
                 trailing = rawData.Slice(indexOfTrailingStart + 2).Trim().ToString();
                 rawData = rawData.Slice(0, indexOfTrailingStart);
@@ -105,11 +106,11 @@ namespace HexChat.Models.Message {
                 }
                 return;
             }
-            indexOfNextSpace = rawData.IndexOf(Space);
+            indexOfNextSpace = rawData.IndexOf(Constants.Space);
             Command = rawData.Slice(0, indexOfNextSpace).ToString();
             rawData = rawData.Slice(indexOfNextSpace + 1);
             var parameters = new List<string>();
-            while ((indexOfNextSpace = rawData.IndexOf(Space)) > -1) {
+            while ((indexOfNextSpace = rawData.IndexOf(Constants.Space)) > -1) {
                 parameters.Add(rawData.Slice(0, indexOfNextSpace).ToString());
                 rawData = rawData.Slice(indexOfNextSpace + 1);
             }
@@ -130,7 +131,7 @@ namespace HexChat.Models.Message {
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        private bool DataDoesNotContainSpaces(ReadOnlySpan<char> data) => !data.Contains(Space, StringComparison.InvariantCultureIgnoreCase);
+        private bool DataDoesNotContainSpaces(ReadOnlySpan<char> data) => !data.Contains(Constants.Space, StringComparison.InvariantCultureIgnoreCase);
         /// <summary>
         /// Is Numeric Reply
         /// </summary>
