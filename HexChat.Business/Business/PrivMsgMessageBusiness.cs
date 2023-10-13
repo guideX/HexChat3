@@ -1,9 +1,7 @@
-﻿using HexChat.Business.Commands;
-using HexChat.Business.Messages.Base;
-using HexChat.Models;
+﻿using HexChat.Business.Messages.Base;
+using HexChat.Constant;
 using HexChat.Models.Interfaces;
 using HexChat.Models.Message;
-using System.Reflection;
 using System.Text;
 namespace HexChat.Business.Business {
     /// <summary>
@@ -24,7 +22,8 @@ namespace HexChat.Business.Business {
 
         public PrivMsgMessageBusiness(string target, string text) {
             Model = new PrivMsgMessageModel(null) {
-
+                To = target,
+                Message = !text.Contains(" ") ? $":{text}" : text
             };
             Model.To = target;
             Model.Message = !text.Contains(" ") ? $":{text}" : text;
@@ -35,20 +34,20 @@ namespace HexChat.Business.Business {
         public IEnumerable<string[]> LineSplitTokens => BuildTokensFromMessageChunks();
 
         private IEnumerable<string[]> BuildTokensFromMessageChunks() {
-            using var reader = new StringReader(Message);
+            using var reader = new StringReader(Model.Message);
             string line;
             while ((line = reader.ReadLine()) != null) {
                 if (string.IsNullOrWhiteSpace(line)) {
                     continue;
                 }
 
-                var utf8Text = Encoding.UTF8.GetBytes(Message);
+                var utf8Text = Encoding.UTF8.GetBytes(Model.Message);
 
                 var index = 0;
                 var size = 0;
                 var chunkStart = 0;
                 while (index < utf8Text.Length) {
-                    if (size >= MaxMessageByteSize) {
+                    if (size >= Constants.MaxMessageByteSize) {
                         var messageChunk = Encoding.UTF8.GetString(utf8Text.Skip(chunkStart).Take(size).ToArray());
                         yield return GetTokens(messageChunk);
 
@@ -80,6 +79,6 @@ namespace HexChat.Business.Business {
             }
         }
 
-        private string[] GetTokens(string message) => new[] { "PRIVMSG", To, message };
+        private string[] GetTokens(string message) => new[] { "PRIVMSG", Model.To, message };
     }
 } 

@@ -16,7 +16,7 @@ namespace HexChat.Business.Handlers {
             var channel = client.Channels.GetChannel(serverMessage.Channel);
             if (serverMessage.Nick != client.User.Nick) {
                 var user = client.Peers.GetUser(serverMessage.Nick);
-                channel.AddUser(user);
+                channel.AddUser(user, string.Empty);
             }
             return Task.CompletedTask;
         }

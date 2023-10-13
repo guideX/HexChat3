@@ -9,6 +9,10 @@ namespace HexChat.Business.Messages.Base {
         /// IRC Message
         /// </summary>
         public DateTime CreatedDate { get; } = DateTime.Now;
+        /// <summary>
+        /// ToString
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() {
             return this switch {
                 ISplitClientMessage clientMessage => BuildClientMessage(clientMessage),
@@ -23,46 +27,39 @@ namespace HexChat.Business.Messages.Base {
         private string BuildClientMessage(ISplitClientMessage clientMessage) {
             var sb = new StringBuilder(1024);
             foreach (var tokens in clientMessage.LineSplitTokens) {
-                if (tokens.Length == 0) {
-                    continue;
-                }
+                if (tokens.Length == 0) continue;
                 AppendTokens(sb, tokens);
                 sb.Append(Microsoft.VisualBasic.Constants.vbCrLf);
             }
             return sb.ToString().Trim();
         }
-
+        /// <summary>
+        /// Build Client Message
+        /// </summary>
+        /// <param name="clientMessage"></param>
+        /// <returns></returns>
         private string BuildClientMessage(IClientMessage clientMessage) {
             var tokens = clientMessage.Tokens.ToArray();
-
-            if (tokens.Length == 0) {
-                return string.Empty;
-            }
-
+            if (tokens.Length == 0) return string.Empty;
             var sb = new StringBuilder(256);
-
             AppendTokens(sb, tokens);
-
             return sb.ToString().Trim();
         }
-
+        /// <summary>
+        /// Append Tokens
+        /// </summary>
+        /// <param name="sb"></param>
+        /// <param name="tokens"></param>
         private static void AppendTokens(StringBuilder sb, string[] tokens) {
             var lastIndex = tokens.Length - 1;
-
             try {
                 for (int i = 0; i < tokens.Length; i++) {
-                    if (i == lastIndex && tokens[i].Contains(' ')) {
-                        sb.Append(':');
-                    }
-
+                    if (i == lastIndex && tokens[i].Contains(' ')) sb.Append(':');
                     sb.Append(tokens[i]);
-
-                    if (i < lastIndex) {
-                        sb.Append(' ');
-                    }
+                    if (i < lastIndex) sb.Append(' ');
                 }
             } catch {
-
+                // Don't care
             }
         }
     }

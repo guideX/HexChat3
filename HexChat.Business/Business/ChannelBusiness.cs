@@ -1,7 +1,5 @@
 ﻿using HexChat.Models.Channel;
-using HexChat.Models.Message;
 using HexChat.Models.User;
-using System.Collections.ObjectModel;
 namespace HexChat.Business.Business {
     /// <summary>
     /// Channel Business
@@ -21,15 +19,8 @@ namespace HexChat.Business.Business {
         /// <param name="name"></param>
         public ChannelBusiness(string name) {
             Model = new ChannelModel(name);
-            Model.Users = new ObservableCollection<ChannelUserModel>();
-            Model.Messages = new ObservableCollection<ChannelMessageModel>();
-        }
-        /// <summary>
-        /// Add User
-        /// </summary>
-        /// <param name="user"></param>
-        internal void AddUser(UserModel user) {
-            AddUser(user, string.Empty);
+            Model.Users = new();
+            Model.Messages = new();
         }
         /// <summary>
         /// Add User

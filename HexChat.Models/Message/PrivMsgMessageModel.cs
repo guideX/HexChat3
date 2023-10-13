@@ -15,11 +15,11 @@ namespace HexChat.Models.Message {
         /// <summary>
         /// To
         /// </summary>
-        public string To { get; }
+        public string To { get; set; }
         /// <summary>
         /// Message
         /// </summary>
-        public string Message { get; }
+        public string Message { get; set; }
         /// <summary>
         /// Is Channel Message
         /// </summary>
@@ -32,7 +32,7 @@ namespace HexChat.Models.Message {
         /// Constructor
         /// </summary>
         /// <param name="parsedMessage"></param>
-        public PrivMsgMessageModel(ParsedIRCMessageModel parsedMessage) {
+        public PrivMsgMessageModel(ParsedIRCMessageModel? parsedMessage) {
             if (parsedMessage != null) {
                 From = parsedMessage.Prefix.From;
                 Prefix = parsedMessage.Prefix;
